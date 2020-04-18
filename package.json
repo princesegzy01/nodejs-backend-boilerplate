@@ -1,0 +1,112 @@
+{
+	"name": "NodeJS Boilerplate",
+	"version": "1.0.0",
+	"description": "cross border platform",
+	"main": "src/index.js",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/princesegzy01/nodejs-backend-boilerplate"
+	},
+	"author": "naveteam",
+	"keywords": [
+		"Cross border payment",
+		"cytpto",
+		"utilities"
+	],
+	"engines": {
+		"node": ">=10.14.0"
+	},
+	"scripts": {
+		"dev": "nodemon ./api/index.js",
+		"lint": "tslint ./src/**/*.ts",
+		"dev2": "nodemon src/index.js --exec babel-node --inspect src/index.js",
+		"knex": "babel-node node_modules/.bin/knex --knexfile src/database/knexfile.js",
+		"knex-build": "node_modules/.bin/knex --knexfile api/database/knexfile.js",
+		"db:migrate-build": "yarn knex-build migrate:latest",
+		"db:seed-build": "yarn knex-build seed:run",
+		"db:rollback-build": "yarn knex-build migrate:rollback",
+		"db:migrate": "NODE_ENV=development knex migrate:latest  --knexfile api/database/knexfile.js ",
+		"db:drop": "NODE_ENV=development knex migrate:down  --knexfile api/database/knexfile.js ",
+		"db:seed": "yarn knex seed:run",
+		"db:rollback": "yarn knex migrate:rollback",
+		"eslint": "eslint --ignore-path .gitignore .",
+		"prettier": "prettier --write *.js src/*.js src/**/*.js src/**/**/*.js test/*.js test/**/*.js",
+		"commit": "git-cz"
+	},
+	"license": "ISC",
+	"dependencies": {
+		"@hapi/joi": "^16.1.4",
+		"@koa/cors": "^2.2.2",
+		"@types/bcryptjs": "^2.4.2",
+		"@types/bookshelf": "^1.1.0",
+		"@types/dotenv": "^8.2.0",
+		"@types/hapi__joi": "^16.0.12",
+		"@types/jsonwebtoken": "^8.3.9",
+		"@types/knex": "^0.16.1",
+		"@types/koa": "^2.11.3",
+		"@types/koa-logger": "^3.1.1",
+		"@types/koa-router": "^7.4.0",
+		"@types/koa__cors": "^3.0.1",
+		"@types/nodemailer": "^6.4.0",
+		"@types/uuid": "^7.0.2",
+		"aws-sdk": "^2.491.0",
+		"bcryptjs": "^2.4.3",
+		"bookshelf": "^1.0.1",
+		"bookshelf-upsert": "^0.2.0",
+		"bookshelf-uuid": "^1.0.0",
+		"dotenv": "^6.1.0",
+		"file-type": "^14.1.4",
+		"firebase": "^7.14.0",
+		"googleapis": "^47.0.0",
+		"jsonwebtoken": "^8.3.0",
+		"knex": "^0.19.5",
+		"koa": "^2.5.3",
+		"koa-body": "^4.0.4",
+		"koa-jwt": "^3.5.1",
+		"koa-logger": "^3.2.0",
+		"koa-router": "^7.4.0",
+		"koa-unless": "celsomarques/koa-unless#koa-v2",
+		"pg": "^7.4.3",
+		"sqlite3": "^4.1.0",
+		"ts-node": "^8.8.2",
+		"typescript": "^3.8.3",
+		"uuid": "^3.3.2",
+		"xhr2": "^0.2.0"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^8.2.0",
+		"@commitlint/config-conventional": "^8.2.0",
+		"commitlint": "^8.2.0",
+		"cz-conventional-changelog": "^3.0.2",
+		"eslint": "^6.4.0",
+		"eslint-config-prettier": "^6.3.0",
+		"eslint-config-standard": "^14.1.0",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-node": "^10.0.0",
+		"eslint-plugin-prettier": "^3.1.1",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-standard": "^4.0.1",
+		"husky": "^3.0.0",
+		"jest": "^25.3.0",
+		"lint-staged": "9.5.0",
+		"nodemon": "^1.18.7",
+		"prettier": "^1.18.2",
+		"supertest": "^3.3.0",
+		"tslint": "^6.1.1"
+	},
+	"lint-staged": {
+		"*.{js, jsx}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"resolutions": {
+		"koa-jwt/koa-unless": "celsomarques/koa-unless#koa-v2"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
+}

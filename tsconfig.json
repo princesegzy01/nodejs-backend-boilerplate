@@ -1,0 +1,34 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"esModuleInterop": true,
+		"outDir": ".",
+		"rootDir": "./src",
+		"strict": true,
+		"strictPropertyInitialization": false,
+		"noUnusedLocals": true,
+		"inlineSourceMap": true,
+		"downlevelIteration": true,
+		"lib": [
+			"es2015"
+		],
+		"typeRoots": [
+			"./types",
+			"node_modules/@types"
+		],
+	},
+	"include": [
+		"**/*",
+		"index.d.ts", // declaration file path
+	],
+	"exclude": [
+		"types",
+		"node_modules",
+		"./lib",
+		"./test",
+		"./play",
+		"old"
+	]
+}
